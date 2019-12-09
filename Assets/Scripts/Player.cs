@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
-        gm = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        gm = GameManager.instance.GetComponent<GameManager>();
         gm.player = this;
         Invoke("ResetWalls", 0.5f);
         bomb = this.GetComponent<Bomb>();
