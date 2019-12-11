@@ -22,9 +22,17 @@ public class Player : MonoBehaviour
     public int explosionLength;
     public List<ObjectColors> bombList = new List<ObjectColors>();
 
+    [SerializeField]
+    public GameObject introDialogue;
+
 
     void Start()
     {
+        if (introDialogue != null)
+        {
+            GetComponent<Movement>().enabled = false;
+            Invoke("TriggerMyDialogue", 2);
+        }
         explosionLength = levelInfo.explosionLength;
         currentBombAmount = levelInfo.bombAmount;
 
@@ -45,25 +53,18 @@ public class Player : MonoBehaviour
         levelInfo = GameObject.FindWithTag("LevelInfo").GetComponent<LevelInfo>();
     }
 
+    private void TriggerMyDialogue()
+    {
+        introDialogue.GetComponent<DialogueTrigger>().TriggerDialogue();
+    }
+
     void ResetWalls()
     {
         gm.wallAmount = 1;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButtonDown("Jump"))
-        {
-            DropBomb();
-        }
-        else if (Input.GetKeyDown("r"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
 
-    private void DropBomb()
+    public void DropBomb()
     {
         if (currentBombAmount > 0)
         {

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -32,12 +33,18 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetButtonDown("Jump"))
+        {
+            GetComponent<Player>().DropBomb();
+        }
+        else if (Input.GetKeyDown("r"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
         // if character is already moving, just return
         if (m_MoveCoroutine != null)
             return;
-
-
-
         if (yDir != 0 && xDir == 0)
         {
             xDir = (int)Input.GetAxisRaw("Horizontal");
