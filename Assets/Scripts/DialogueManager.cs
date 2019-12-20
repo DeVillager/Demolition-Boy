@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        FindObjectOfType<Player>().GetComponent<Movement>().enabled = false;
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
         sentences.Clear();
@@ -37,18 +39,16 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
-        DisplayNextSentnce();
+        EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
+        DisplayNextSentence();
     }
 
-    public void DisplayNextSentnce()
+    public void DisplayNextSentence()
     {
-        if (sentences.Count == 1)
-        {
-            FindObjectOfType<Player>().GetComponent<Movement>().enabled = true;
-        }
         if (sentences.Count == 0)
         {
             EndDialogue();
+            FindObjectOfType<Player>().GetComponent<Movement>().enabled = true;
             return;
         }
         string sentence = sentences.Dequeue();
@@ -56,7 +56,7 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator TypeSentence (string sentence)
+    IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())

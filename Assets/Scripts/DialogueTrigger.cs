@@ -5,6 +5,7 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
+    private bool hasTriggered = false;
 
     public void TriggerDialogue()
     {
@@ -13,6 +14,10 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        TriggerDialogue();
+        if (!hasTriggered && collision.gameObject.tag == "Player")
+        {
+            TriggerDialogue();
+            hasTriggered = true;
+        }
     }
 }

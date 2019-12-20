@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField]
     float m_SpeedFactor;
-    
+
     int xDir;
     int yDir;
     bool legalMove;
@@ -24,22 +24,34 @@ public class Movement : MonoBehaviour
     private Animator anim;
     private bool walking;
     private bool shouldIdle;
+    public bool exploding = false;
     private Vector2 lastMove;
+
+    private Vector2 startPosition;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        startPosition = transform.position;
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !exploding)
         {
+            exploding = true;
+            anim.SetBool("Exploding", exploding);
             GetComponent<Player>().DropBomb();
         }
         else if (Input.GetKeyDown("r"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            ResetStage();
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            exploding = false;
+            anim.SetBool("Exploding", exploding);
         }
 
         // if character is already moving, just return
@@ -94,6 +106,13 @@ public class Movement : MonoBehaviour
             acceptingInput = false;
             StartCoroutine(m_MoveCoroutine);
         }
+    }
+
+    private void ResetStage()
+    {
+        transform.position = startPosition;
+        GetComponent<Player>().ResetBombs();
+        FindObjectOfType<BoxManager>().ResetBoxes();
     }
 
     private bool AttemptMove()

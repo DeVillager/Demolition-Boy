@@ -69,11 +69,13 @@ public class Player : MonoBehaviour
         if (currentBombAmount > 0)
         {
             gm.bombsLeft--;
-            //Instantiate(bombPrefabs[(int)bombList[bombList.Count-1]], new Vector3(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), 0), bombPrefabs[(int)bombList[bombList.Count - 1]].transform.rotation);
-            //Instantiate(bomb, new Vector3(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), 0), Quaternion.identity);
-            // bombList.RemoveAt((int)bombList.Count-1);
             bomb.Explode();
             currentBombAmount--;
         }
+    }
+
+    public void ResetBombs()
+    {
+        currentBombAmount = levelInfo.bombAmount;
     }
 }

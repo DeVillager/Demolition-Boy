@@ -1047,6 +1047,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3327722381801736235, guid: bcea8d63cac0a6f41a2138ae77a21121,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogueTrigger2
+      objectReference: {fileID: 0}
     - target: {fileID: -3699162089830571977, guid: bcea8d63cac0a6f41a2138ae77a21121,
         type: 3}
       propertyPath: m_Offset.y
@@ -1057,15 +1062,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 7.8057337
       objectReference: {fileID: 0}
-    - target: {fileID: 3327722381801736235, guid: bcea8d63cac0a6f41a2138ae77a21121,
-        type: 3}
-      propertyPath: m_Name
-      value: DialogueTrigger2
-      objectReference: {fileID: 0}
     - target: {fileID: 3327722381801736237, guid: bcea8d63cac0a6f41a2138ae77a21121,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3327722381801736237, guid: bcea8d63cac0a6f41a2138ae77a21121,
         type: 3}
@@ -1558,7 +1558,7 @@ PrefabInstance:
     - target: {fileID: 3591724873024886294, guid: 1415049816deda44c839942c7d55e0a9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DisplayNextSentnce
+      value: DisplayNextSentence
       objectReference: {fileID: 0}
     - target: {fileID: 3591724873024886294, guid: 1415049816deda44c839942c7d55e0a9,
         type: 3}
