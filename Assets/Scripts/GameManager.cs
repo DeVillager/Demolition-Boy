@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    
+
 
     public static GameManager instance = null;
     private int level = 1;
@@ -30,15 +30,18 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        // Debug.Log(Application.dataPath);
-        wallAmount = 1;
-        level = SceneManager.GetActiveScene().buildIndex;
-
         if (instance == null)
+        {
             instance = this;
+        }
         else if (instance != this)
-            Destroy(gameObject);            
+        {
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(gameObject);
+
+        wallAmount = 0;
+        level = SceneManager.GetActiveScene().buildIndex;
 
         splashScreen = Instantiate(splashScreen);
         bombText = splashScreen.transform.Find("BombText").GetComponent<Text>();
@@ -46,6 +49,16 @@ public class GameManager : MonoBehaviour
         levelImage = splashScreen.transform.GetChild(1).gameObject;
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         InitGame();
+    }
+
+    private void Start()
+    {
+        Invoke("UpdateWalls", 1f);
+    }
+
+    private void UpdateWalls()
+    {
+        wallAmount = LevelInfo.instance.wallAmount;
     }
 
     public void DecreaseWalls()
@@ -99,7 +112,7 @@ public class GameManager : MonoBehaviour
     {
         bombsLeft = player.currentBombAmount;
         bombText.text = $"Bombs left: {bombsLeft}";
-        if (wallAmount <= 1 && !doingSetup)
+        if (wallAmount <= 0 && !doingSetup)
         {
             exit.gameObject.SetActive(true);
         }

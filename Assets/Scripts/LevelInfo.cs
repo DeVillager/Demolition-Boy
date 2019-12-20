@@ -17,27 +17,28 @@ public class LevelInfo : MonoBehaviour
     [SerializeField]
     public int wallAmount;
 
+    public static LevelInfo instance;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
-    // Start is called before the first frame update
     void Start()
     {  
         wallAmount = GameObject.FindGameObjectsWithTag("Wall1").Length;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {    
     }
 
     public void UpdateColor(ObjectColors color)
     {
         this.objectColors = color;
         Debug.Log(color);
-    }
-
-    public int Get100()
-    {
-        return bombAmount;
     }
 }

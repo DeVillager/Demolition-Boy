@@ -18,13 +18,11 @@ public class Wall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gm = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
         if (WallProperty == WallType.HitpointWall)
         {
             GetComponentInChildren<TextMeshProUGUI>().text = hitpoints.ToString();
         }
-        Invoke("AddWall", 0.5f);
+        //Invoke("AddWall", 0.5f);
         // gm.wallAmount++;
     }
 
@@ -35,8 +33,10 @@ public class Wall : MonoBehaviour
 
     public void AddWall()
     {
-        gm.wallAmount++;
+        GameManager.instance.wallAmount++;
+        Debug.Log("walls " + GameManager.instance.wallAmount);
     }
+
     public void DamageWall(int wallDamage)
     {
         if (hitpoints > 1 && WallProperty == WallType.HitpointWall)
@@ -46,9 +46,9 @@ public class Wall : MonoBehaviour
         }
         else if (hitpoints <= 1)
         {
-            gm.DecreaseWalls();
-            Debug.Log($"Walls left: {gm.wallAmount}");
-            Destroy(gameObject);
+            GameManager.instance.DecreaseWalls();
+            Debug.Log($"Walls left: {GameManager.instance.wallAmount}");
+            gameObject.SetActive(false);
         }
     }
 

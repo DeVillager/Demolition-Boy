@@ -113,6 +113,7 @@ public class Movement : MonoBehaviour
         transform.position = startPosition;
         GetComponent<Player>().ResetBombs();
         FindObjectOfType<BoxManager>().ResetBoxes();
+        Exit.instance.gameObject.SetActive(false);
     }
 
     private bool AttemptMove()

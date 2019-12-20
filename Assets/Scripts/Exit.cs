@@ -5,13 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class Exit : MonoBehaviour
 {
+    public static Exit instance;
     private bool isColliding = false;
 
     [SerializeField]
     public Sprite exitClosed;
     [SerializeField]
     public Sprite exitOpen;
-    
+
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Start()
     {
         GameManager.instance.exit = this.gameObject;
