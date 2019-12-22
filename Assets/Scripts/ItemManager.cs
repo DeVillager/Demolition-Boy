@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxManager : MonoBehaviour
+public class ItemManager : MonoBehaviour
 {
     [SerializeField]
-    public List<GameObject> boxes;
-    public static BoxManager instance;
+    public List<GameObject> items;
+    public static ItemManager instance;
 
     void Awake()
     {
@@ -23,15 +22,14 @@ public class BoxManager : MonoBehaviour
 
     void Start()
     {
-        Invoke("ResetBoxes", 0.5f);
-        //ResetBoxes();
+        Invoke("ResetItems", 0.5f);
     }
 
-    public void ResetBoxes()
+    public void ResetItems()
     {
-        for (int i = 0; i < boxes.Count; i++)
+        for (int i = 0; i < items.Count; i++)
         {
-            boxes[i].SetActive(true);
+            items[i].SetActive(true);
         }
         GameManager.instance.wallAmount = LevelInfo.instance.wallAmount;
     }

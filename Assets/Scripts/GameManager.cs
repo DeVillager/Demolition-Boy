@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public float levelStartDelay = 2f;
 
     private Text levelText;
-    private Text bombText;
+    public Text bombText;
 
     private GameObject levelImage;
 
@@ -111,7 +111,16 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         bombsLeft = player.currentBombAmount;
-        bombText.text = $"Bombs left: {bombsLeft}";
+        BombType btype = Player.instance.bombType;
+        if (btype == BombType.Normal)
+        {
+            bombText.text = $"Bombs left: {bombsLeft}";
+        }
+        else if (btype == BombType.Vertical || btype == BombType.Horizontal)
+        {
+            bombText.text = $"{btype} bomb";
+        }
+
         if (wallAmount <= 0 && !doingSetup)
         {
             exit.gameObject.SetActive(true);

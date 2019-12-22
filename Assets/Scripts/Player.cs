@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     GameObject[] bombPrefabs;
+
+    public BombType bombType;
+
     Movement movement;
     GameManager gm;
 
@@ -25,9 +28,30 @@ public class Player : MonoBehaviour
     [SerializeField]
     public GameObject introDialogue;
 
+    public static Player instance;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
+        gm = GameManager.instance.GetComponent<GameManager>();
+        gm.player = this;
+        Invoke("ResetWalls", 0.5f);
+        bomb = this.GetComponent<Bomb>();
+        legalMove = true;
+        movement = GetComponent<Movement>();
+        levelInfo = GameObject.FindWithTag("LevelInfo").GetComponent<LevelInfo>();
+
         if (introDialogue != null)
         {
             GetComponent<Movement>().enabled = false;
@@ -42,15 +66,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Awake()
+    public void ChangeBomb(BombType type)
     {
-        gm = GameManager.instance.GetComponent<GameManager>();
-        gm.player = this;
-        Invoke("ResetWalls", 0.5f);
-        bomb = this.GetComponent<Bomb>();
-        legalMove = true;
-        movement = GetComponent<Movement>();
-        levelInfo = GameObject.FindWithTag("LevelInfo").GetComponent<LevelInfo>();
+        bombType = type;
+        GameManager.instance.bombText.text = $"{type}";
     }
 
     private void TriggerMyDialogue()

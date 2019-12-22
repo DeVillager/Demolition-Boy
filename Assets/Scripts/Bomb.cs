@@ -46,20 +46,41 @@ public class Bomb : MonoBehaviour
     public void Explode()
     {
         //Center explosion sprite switch and instantiate
-        player = GameObject.FindWithTag("Player");
+        player = Player.instance.gameObject;
         position = new Vector3(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), 0);
 
         GameObject centerFire = Instantiate(explosionPrefab, position, Quaternion.identity);
         explosionLength = player.GetComponent<Player>().explosionLength;
 
-        StartCoroutine(CreateExplosions(Vector3.up));
-        StartCoroutine(CreateExplosions(Vector3.right));
-        StartCoroutine(CreateExplosions(Vector3.down));
-        StartCoroutine(CreateExplosions(Vector3.left));
-
-        //  Destroy(gameObject);
-        //GetComponent<SpriteRenderer>().enabled = false;
-        // Debug.Log(bombColor);
+        BombType btype = Player.instance.bombType;
+        if (btype == BombType.Normal)
+        {
+            StartCoroutine(CreateExplosions(Vector3.up));
+            StartCoroutine(CreateExplosions(Vector3.right));
+            StartCoroutine(CreateExplosions(Vector3.down));
+            StartCoroutine(CreateExplosions(Vector3.left));
+        }
+        else if (btype == BombType.Horizontal)
+        {
+            explosionLength = 9;
+            StartCoroutine(CreateExplosions(Vector3.right));
+            StartCoroutine(CreateExplosions(Vector3.left));
+        }
+        else if (btype == BombType.Vertical)
+        {
+            explosionLength = 9;
+            StartCoroutine(CreateExplosions(Vector3.up));
+            StartCoroutine(CreateExplosions(Vector3.down));
+        }
+        else if (btype == BombType.Cross)
+        {
+            explosionLength = 9;
+            StartCoroutine(CreateExplosions(Vector3.up));
+            StartCoroutine(CreateExplosions(Vector3.right));
+            StartCoroutine(CreateExplosions(Vector3.down));
+            StartCoroutine(CreateExplosions(Vector3.left));
+        }
+        Player.instance.bombType = BombType.Normal;
     }
 
     private IEnumerator CreateExplosions(Vector3 direction)
@@ -125,4 +146,12 @@ public class Bomb : MonoBehaviour
         }
         
     }
+}
+
+public enum BombType
+{
+    Normal,
+    Vertical,
+    Horizontal,
+    Cross
 }

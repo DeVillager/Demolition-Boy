@@ -45,8 +45,8 @@ public class Movement : MonoBehaviour
         }
         else if (Input.GetKeyDown("r"))
         {
-            ResetStage();
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //ResetStage();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         else
         {
@@ -111,8 +111,16 @@ public class Movement : MonoBehaviour
     private void ResetStage()
     {
         transform.position = startPosition;
+        GetComponent<Player>().bombType = BombType.Normal;
         GetComponent<Player>().ResetBombs();
-        FindObjectOfType<BoxManager>().ResetBoxes();
+        var fires = FindObjectsOfType<Fire>();
+        FindObjectOfType<Bomb>().enabled = false;
+        foreach (var item in fires)
+        {
+            Destroy(item.gameObject);
+        }
+        BoxManager.instance.ResetBoxes();
+        ItemManager.instance.ResetItems();
         Exit.instance.gameObject.SetActive(false);
     }
 
