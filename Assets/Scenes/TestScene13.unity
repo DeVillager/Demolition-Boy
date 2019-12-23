@@ -1774,7 +1774,7 @@ PrefabInstance:
     - target: {fileID: 3327722381801736234, guid: bcea8d63cac0a6f41a2138ae77a21121,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: next specialbomb spotted:)))
+      value: next special bomb spotted:)))
       objectReference: {fileID: 0}
     - target: {fileID: 3327722381801736234, guid: bcea8d63cac0a6f41a2138ae77a21121,
         type: 3}

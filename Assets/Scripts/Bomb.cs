@@ -53,6 +53,8 @@ public class Bomb : MonoBehaviour
         explosionLength = player.GetComponent<Player>().explosionLength;
 
         BombType btype = Player.instance.bombType;
+        SoundManager.instance.PlaySingle("blast");
+        FindObjectOfType<ShakeBehaviour>().TriggerShake();
         if (btype == BombType.Normal)
         {
             StartCoroutine(CreateExplosions(Vector3.up));

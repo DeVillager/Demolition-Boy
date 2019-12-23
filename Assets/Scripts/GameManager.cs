@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
 
     public static GameManager instance = null;
-    private int level = 1;
+    public int level = 1;
     public float levelStartDelay = 2f;
 
     private Text levelText;
@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public Player player;
     public bool doingSetup;
     public int wallAmount = 1;
+    public bool exitInitialized = false;
+    public bool exitRevealed = false;
 
     [SerializeField]
     public int bombsLeft;
@@ -47,8 +49,15 @@ public class GameManager : MonoBehaviour
         bombText = splashScreen.transform.Find("BombText").GetComponent<Text>();
         levelText = splashScreen.transform.GetChild(1).transform.GetChild(0).GetComponent<Text>();
         levelImage = splashScreen.transform.GetChild(1).gameObject;
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        player = Player.instance;
         InitGame();
+    }
+
+    public void Init2()
+    {
+        doingSetup = true;
+        exitRevealed = false;
+        Invoke("HideLevelImage", 0.5f);
     }
 
     private void Start()
@@ -120,9 +129,11 @@ public class GameManager : MonoBehaviour
         {
             bombText.text = $"{btype} bomb";
         }
-
-        if (wallAmount <= 0 && !doingSetup)
+        if (wallAmount <= 0 && !doingSetup && !exit.activeInHierarchy)
         {
+            //exitRevealed = true;
+
+            SoundManager.instance.PlaySingle("reveal");
             exit.gameObject.SetActive(true);
         }
     }

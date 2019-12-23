@@ -61,6 +61,16 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
+            if (SoundManager.instance.efxSource.isPlaying)
+            {
+                if (SoundManager.instance.efxSource.clip.name != "letter")
+                {
+                    SoundManager.instance.PlaySingle("letter");
+                }
+            } else
+            {
+                SoundManager.instance.PlaySingle("letter");
+            }
             dialogueText.text += letter;
             yield return null;
         }

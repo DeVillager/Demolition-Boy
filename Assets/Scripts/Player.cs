@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     private bool legalMove;
+    private bool isFading = true;
 
     [SerializeField]
     public int currentBombAmount = 2;
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
     public GameObject introDialogue;
 
     public static Player instance;
+    private SpriteRenderer spriteRenderer;
 
     void Awake()
     {
@@ -44,6 +46,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         gm = GameManager.instance.GetComponent<GameManager>();
         gm.player = this;
         Invoke("ResetWalls", 0.5f);
@@ -64,6 +67,11 @@ public class Player : MonoBehaviour
         {
             bombList.Add(ObjectColors.Normal);
         }
+    }
+
+    public void Fade()
+    {
+        isFading = true;
     }
 
     public void ChangeBomb(BombType type)
@@ -90,6 +98,9 @@ public class Player : MonoBehaviour
             gm.bombsLeft--;
             bomb.Explode();
             currentBombAmount--;
+        } else
+        {
+            SoundManager.instance.PlaySingle("nobomb2");
         }
     }
 
@@ -97,4 +108,5 @@ public class Player : MonoBehaviour
     {
         currentBombAmount = levelInfo.bombAmount;
     }
+
 }

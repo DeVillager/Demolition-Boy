@@ -46,6 +46,9 @@ public class Movement : MonoBehaviour
         else if (Input.GetKeyDown("r"))
         {
             //ResetStage();
+            SoundManager.instance.PlaySingle("restart");
+            //GameManager.instance.InitGame();
+            GameManager.instance.Init2();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         else
@@ -57,6 +60,7 @@ public class Movement : MonoBehaviour
         // if character is already moving, just return
         if (m_MoveCoroutine != null)
             return;
+
         if (yDir != 0 && xDir == 0)
         {
             xDir = (int)Input.GetAxisRaw("Horizontal");
@@ -135,6 +139,10 @@ public class Movement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, solid.value);
         if (hit.collider != null)
         {
+            if (!SoundManager.instance.efxSource.isPlaying)
+            {
+                SoundManager.instance.PlaySingle("bump3");
+            }
             canMove = false;
             //Debug.Log("Exit found.");
         }
