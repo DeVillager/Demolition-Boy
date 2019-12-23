@@ -58,6 +58,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 98d1f86e36b27e04185629ef594ddb8f, type: 3}
   - {fileID: 8300000, guid: dbcfe08bce341844cb07db0b18d83e00, type: 3}
   - {fileID: 8300000, guid: 8139bf4cdcc2c0d419d2f442093b4cf1, type: 3}
+  - {fileID: 8300000, guid: 094f59380babb3941be8584c5df50e5e, type: 3}
   efxSource: {fileID: 1500043891178449537}
   musicSource: {fileID: 6296545339300248985}
   lowPitchRange: 0.95

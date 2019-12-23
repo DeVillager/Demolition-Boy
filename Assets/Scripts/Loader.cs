@@ -8,6 +8,8 @@ public class Loader : MonoBehaviour
     public GameObject gameManager;            //GameManager prefab to instantiate.
     public GameObject levelBuilder;
 
+    [SerializeField]
+    private AudioClip levelMusic;
 
     void Awake()
     {
@@ -19,5 +21,15 @@ public class Loader : MonoBehaviour
 
         //    //Instantiate SoundManager prefab
         //    Instantiate(soundManager);
+    }
+
+    private void Start()
+    {
+        if (SoundManager.instance.musicSource.clip.name != "bg1")
+        {
+            SoundManager.instance.musicSource.clip = levelMusic;
+            SoundManager.instance.musicSource.Play();
+
+        }
     }
 }

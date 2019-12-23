@@ -51,6 +51,10 @@ public class Movement : MonoBehaviour
             GameManager.instance.Init2();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        else if (Input.GetKeyDown("escape"))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
         else
         {
             exploding = false;

@@ -101,6 +101,7 @@ MonoBehaviour:
     type: 3}
   levelBuilder: {fileID: 1028568703007942430, guid: 3b021b0a8264cc449b2ad6831cdb1608,
     type: 3}
+  levelMusic: {fileID: 8300000, guid: c4e36c53989c037459847055b7ee76f3, type: 3}
 --- !u!114 &-3305650728349162539
 MonoBehaviour:
   m_ObjectHideFlags: 0

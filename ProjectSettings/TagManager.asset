@@ -13,6 +13,7 @@ TagManager:
   - LevelText
   - UI
   - SplashScreen
+  - Background
   layers:
   - Default
   - TransparentFX
