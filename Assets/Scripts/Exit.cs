@@ -50,6 +50,8 @@ public class Exit : MonoBehaviour
                 SoundManager.instance.PlaySingle("stairs");
             }
             isColliding = true;
+            LevelManager.instance.levelPoints[GameManager.instance.level] = 1;
+            SaveSystem.SaveGameData(LevelManager.instance);
             GameManager.instance.LoadNextScene();
             //Player.instance.Fade();
             //Invoke("NextLevel", 0.5f);

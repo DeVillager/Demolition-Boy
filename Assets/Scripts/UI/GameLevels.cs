@@ -19,7 +19,7 @@ public class GameLevels : MonoBehaviour
     void Start()
     {
 
-        //int[] points = LevelManager.instance.levelPoints;
+        int[] points = LevelManager.instance.levelPoints;
         // string folderName = Application.dataPath + "/Scenes/FinalLevels";
         // var dirInfo = new DirectoryInfo(folderName);
         // var allFileInfos = dirInfo.GetFiles("*.unity", SearchOption.AllDirectories);
@@ -31,13 +31,22 @@ public class GameLevels : MonoBehaviour
         //EditorBuildSettingsScene[] scenes = EditorBuildSettings.scenes;
         //scenes = scenes.Skip(2).ToArray();
         // Debug.Log("moi "+ scenes.Length);
+
+       
+        
         for (int i = 0; i < scenes - 2; i++)
         {
+            
+            Debug.Log(i);
             //string levelName = Path.GetFileNameWithoutExtension(allFileInfos[i].FullName);
             string levelName = i+1+"";
             GameObject levelBtn = Instantiate(levelButton, Vector3.zero, Quaternion.identity);
             levelBtn.GetComponent<LevelButton>().levelNumber = i+1;
             levelBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = levelName;
+            if (points[i] == 0)
+            {
+                levelBtn.GetComponent<Button>().interactable = false;
+            }
             //levelBtn.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = $"{points[i]} stars";
             //GameObject stars = levelBtn.transform.GetChild(1).gameObject;
             //if (points[i] != -1)
