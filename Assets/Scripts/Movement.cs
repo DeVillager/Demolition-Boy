@@ -164,8 +164,8 @@ public class Movement : MonoBehaviour
         walking = true;
         shouldIdle = false;
         anim.SetBool("Walking", !shouldIdle);
-        anim.SetFloat("MoveX", direction.x);
-        anim.SetFloat("MoveY", direction.y);
+        //anim.SetFloat("MoveX", direction.x);
+        //anim.SetFloat("MoveY", direction.y);
         while (t < 1.0f) // loop while player is not in the right spot
         {
             if (t > 0.9f)
@@ -179,8 +179,8 @@ public class Movement : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         acceptingInput = true;
-        anim.SetFloat("LastMoveX", direction.x);
-        anim.SetFloat("LastMoveY", direction.y);
+        //anim.SetFloat("LastMoveX", direction.x);
+        //anim.SetFloat("LastMoveY", direction.y);
         lastMove = direction;
         // stop coroutine
         StopCoroutine(m_MoveCoroutine);

@@ -19,6 +19,8 @@ public class LevelInfo : MonoBehaviour
 
     public static LevelInfo instance;
 
+    public GameObject showDialogue;
+
     private void Awake()
     {
         if (instance == null)

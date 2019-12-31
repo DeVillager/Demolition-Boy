@@ -7,6 +7,7 @@ using UnityEditor;
 using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GameLevels : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class GameLevels : MonoBehaviour
     [SerializeField]
     GameObject levelButton;
     private int latestLevel;
+
+    public GameObject firstButton;
 
     void Start()
     {
@@ -34,7 +37,7 @@ public class GameLevels : MonoBehaviour
 
        
         
-        for (int i = 0; i < scenes - 2; i++)
+        for (int i = 0; i < scenes - 1; i++)
         {
             
             Debug.Log(i);
@@ -43,6 +46,10 @@ public class GameLevels : MonoBehaviour
             GameObject levelBtn = Instantiate(levelButton, Vector3.zero, Quaternion.identity);
             levelBtn.GetComponent<LevelButton>().levelNumber = i+1;
             levelBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = levelName;
+            if (i == 1)
+            {
+                firstButton = levelBtn;
+            }
             if (points[i] == 0)
             {
                 levelBtn.GetComponent<Button>().interactable = false;

@@ -38,6 +38,8 @@ public class Fire : MonoBehaviour
     [HideInInspector]
     public bool isDown = false;
 
+    public Animator anim;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();

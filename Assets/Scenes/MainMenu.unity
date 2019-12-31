@@ -785,7 +785,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -16.202543, y: -58.147827}
-  m_SizeDelta: {x: 618.5607, y: 192.5}
+  m_SizeDelta: {x: 455.7, y: 150.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &979572762
 MonoBehaviour:
@@ -902,7 +902,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1136, y: 640}
+  m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
@@ -965,6 +965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menumusic: {fileID: 8300000, guid: 094f59380babb3941be8584c5df50e5e, type: 3}
+  gameLevels: {fileID: 1487002322}
 --- !u!114 &1270617748 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3591724873024886295, guid: 1415049816deda44c839942c7d55e0a9,
@@ -1119,7 +1120,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 50, y: 50}
-  m_Spacing: {x: 50, y: 50}
+  m_Spacing: {x: 30, y: 30}
   m_Constraint: 0
   m_ConstraintCount: 5
 --- !u!222 &1487002321
@@ -1144,6 +1145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelButton: {fileID: 2346289900830560618, guid: 8484802ae80a0914eb50ca3486636d5e,
     type: 3}
+  firstButton: {fileID: 0}
 --- !u!1001 &1490646663
 PrefabInstance:
   m_ObjectHideFlags: 0

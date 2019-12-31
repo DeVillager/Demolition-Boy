@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    [SerializeField]
+    private float startDelay = 0;
+    private float time = 0;
+
     public Dialogue dialogue;
     private bool hasTriggered = false;
+
 
     public void TriggerDialogue()
     {
@@ -16,8 +21,10 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (!hasTriggered && collision.gameObject.tag == "Player")
         {
-            TriggerDialogue();
             hasTriggered = true;
+            TriggerDialogue();
         }
     }
+
+
 }

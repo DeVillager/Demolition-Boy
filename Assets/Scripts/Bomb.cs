@@ -91,13 +91,20 @@ public class Bomb : MonoBehaviour
 
         for (int i = 1; i < explosionLength; i++)
         {
-            RaycastHit2D hit;
 
+            RaycastHit2D hit;
             hit = Physics2D.Raycast(position, direction, i, indestructibleMask);
 
             if (!hit.collider)
             { 
+
                 explosion = Instantiate(explosionPrefab, position + (i * direction), explosionPrefab.transform.rotation);
+                //hit = Physics2D.Raycast(position, direction, i, destructibleMask);
+                //if (hit.collider && Player.instance.bombType == BombType.Normal)
+                //{
+                //    break;
+                //}
+                //explosion = Instantiate(explosionPrefab, position + (i * direction), explosionPrefab.transform.rotation);
 
                 // Sprite switch and direction check
 

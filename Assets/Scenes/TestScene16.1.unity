@@ -312,6 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e87acc59f1ad1d14a8f94578c238c4e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startDelay: 0
   dialogue:
     name: DemolitionMan
     sentences:
@@ -5097,7 +5098,7 @@ PrefabInstance:
     - target: {fileID: 6948745370194580254, guid: 146436f5e7ba1a44fb611713309c9f2b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6948745370194580254, guid: 146436f5e7ba1a44fb611713309c9f2b,
         type: 3}

@@ -67,7 +67,8 @@ public class DialogueManager : MonoBehaviour
                 {
                     SoundManager.instance.PlaySingle("letter");
                 }
-            } else
+            }
+            else
             {
                 SoundManager.instance.PlaySingle("letter");
             }

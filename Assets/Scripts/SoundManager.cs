@@ -41,9 +41,18 @@ public class SoundManager : MonoBehaviour
                 efxSource.Play();
             }
         }
-        //Set the clip of our efxSource audio source to the clip passed in as a parameter.
+    }
 
-        //Play the clip.
+    public void PlayMusic(string name)
+    {
+        foreach (AudioClip clip in clips)
+        {
+            if (clip.name == name)
+            {
+                musicSource.clip = clip;
+                musicSource.Play();
+            }
+        }
     }
 
 

@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Loader : MonoBehaviour
 {
-    public GameObject gameManager;            //GameManager prefab to instantiate.
+    public GameObject gameManager;
+    public GameObject soundManager;
+    public GameObject levelManager;
     public GameObject levelBuilder;
 
     [SerializeField]
@@ -15,21 +17,27 @@ public class Loader : MonoBehaviour
     {
         if (GameManager.instance == null)
             Instantiate(gameManager);
+        if (SoundManager.instance == null)
+            Instantiate(soundManager);
+        if (LevelManager.instance == null)
+            Instantiate(levelManager);
         Instantiate(levelBuilder, Vector3.zero, Quaternion.identity);
-
-        //if (SoundManager.instance == null)
-
-        //    //Instantiate SoundManager prefab
-        //    Instantiate(soundManager);
     }
 
     private void Start()
     {
-        if (SoundManager.instance.musicSource.clip.name != "bg1")
+        if (levelMusic.name == "final")
+        {
+            if (SoundManager.instance.musicSource.clip != levelMusic)
+            {
+                SoundManager.instance.musicSource.clip = levelMusic;
+                SoundManager.instance.musicSource.Play();
+            }
+        }
+        else if (SoundManager.instance.musicSource.clip.name != "bg1")
         {
             SoundManager.instance.musicSource.clip = levelMusic;
             SoundManager.instance.musicSource.Play();
-
         }
     }
 }

@@ -9,14 +9,17 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField]
     private AudioClip menumusic;
-
-    private GameObject firstLevelButton;
+    [SerializeField]
+    private GameLevels gameLevels;
 
     private void Start()
     {
-        SoundManager.instance.musicSource.clip = menumusic;
-        SoundManager.instance.musicSource.Play();
-        Invoke("AddFirstLevel", 0.2f);
+        if (SoundManager.instance != null)
+        {
+            SoundManager.instance.musicSource.clip = menumusic;
+            SoundManager.instance.musicSource.Play();
+        }
+        //Invoke("AddFirstLevel", 0.5f);
     }
 
     public void StartGame()
@@ -36,13 +39,14 @@ public class UIManager : MonoBehaviour
 
     public void SelectFirstLevel()
     {
-        Debug.Log(firstLevelButton.name + "joo");
-        EventSystem.current.SetSelectedGameObject(firstLevelButton);
+        //Debug.Log(firstLevelButton.name + "joo");
+        //EventSystem.current.SetSelectedGameObject(firstLevelButton);
+        EventSystem.current.SetSelectedGameObject(gameLevels.firstButton);
     }
 
     public void AddFirstLevel()
     {
-        firstLevelButton = GameObject.FindGameObjectWithTag("Content").transform.GetChild(0).gameObject;
+        //firstLevelButton = GameObject.FindGameObjectWithTag("Content").transform.GetChild(0).gameObject;
     }
 
 }

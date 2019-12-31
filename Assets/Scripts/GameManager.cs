@@ -47,8 +47,8 @@ public class GameManager : MonoBehaviour
 
         splashScreen = Instantiate(splashScreen);
         bombText = splashScreen.transform.Find("BombText").GetComponent<Text>();
-        levelText = splashScreen.transform.GetChild(1).transform.GetChild(0).GetComponent<Text>();
-        levelImage = splashScreen.transform.GetChild(1).gameObject;
+        levelText = splashScreen.transform.GetChild(2).GetChild(0).GetComponent<Text>();
+        levelImage = splashScreen.transform.GetChild(2).gameObject;
         player = Player.instance;
         InitGame();
     }
@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("Loaded scene " + level);
+        Debug.Log("Total scenes " + SceneManager.sceneCountInBuildSettings);
         Invoke("UpdateWalls", 1f);
     }
 
@@ -93,6 +95,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene(int index)
     {
+        InitGame();
         SceneManager.LoadScene(index);
     }
 
@@ -125,21 +128,51 @@ public class GameManager : MonoBehaviour
         {
             bombText.text = $"Bombs left: {bombsLeft}";
         }
-        else if (btype == BombType.Vertical || btype == BombType.Horizontal)
+        else if (btype != BombType.Normal)
         {
             bombText.text = $"{btype} bomb";
         }
-        if (wallAmount <= 0 && !doingSetup && !exit.activeInHierarchy)
+        if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            //exitRevealed = true;
-
-            SoundManager.instance.PlaySingle("reveal");
-            exit.gameObject.SetActive(true);
+            if (wallAmount <= 0 && !doingSetup && !exit.activeInHierarchy)
+            {
+                //exitRevealed = true;
+                if (LevelInfo.instance.showDialogue != null)
+                {
+                    LevelInfo.instance.showDialogue.SetActive(true);
+                }
+                SoundManager.instance.PlaySingle("reveal");
+                if (level == SceneManager.sceneCountInBuildSettings - 2)
+                {
+                    SoundManager.instance.PlayMusic("ending");
+                }
+                exit.gameObject.SetActive(true);
+            }
         }
     }
 
     public int GetActiveScene()
     {
         return level;
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // here you can use scene.buildIndex or scene.name to check which scene was loaded
+        if (scene.name == "Ending")
+        {
+            // Destroy the gameobject this script is attached to
+            Destroy(gameObject);
+        }
     }
 }

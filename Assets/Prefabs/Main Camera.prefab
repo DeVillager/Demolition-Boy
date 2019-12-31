@@ -99,6 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 6332967083689296830, guid: 954f0cf4a42ef044f9a8810ac87fa0a7,
     type: 3}
+  soundManager: {fileID: 8982502945615253324, guid: 8aaba6960b4910d4a9f32b7e3b110a44,
+    type: 3}
+  levelManager: {fileID: 4035804186530144473, guid: 190af8ffea7694d4fa8b114e6e9a9af4,
+    type: 3}
   levelBuilder: {fileID: 1028568703007942430, guid: 3b021b0a8264cc449b2ad6831cdb1608,
     type: 3}
   levelMusic: {fileID: 8300000, guid: c4e36c53989c037459847055b7ee76f3, type: 3}

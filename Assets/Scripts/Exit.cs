@@ -8,6 +8,8 @@ public class Exit : MonoBehaviour
     public static Exit instance;
     private bool isColliding = false;
 
+    
+
     //[SerializeField]
     //public Sprite exitClosed;
     //[SerializeField]
@@ -53,6 +55,7 @@ public class Exit : MonoBehaviour
             LevelManager.instance.levelPoints[GameManager.instance.level] = 1;
             SaveSystem.SaveGameData(LevelManager.instance);
             GameManager.instance.LoadNextScene();
+            
             //Player.instance.Fade();
             //Invoke("NextLevel", 0.5f);
             //GameManager.LoadScene(GameManager.GetActiveScene().buildIndex);
