@@ -81,6 +81,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TestScene21.unity
     guid: c340fec0e17e7aa479a5fc62500236ae
   - enabled: 1
+    path: Assets/Scenes/TestScene21.1.unity
+    guid: b909b60adb0f65c4c98659a7cce01fc0
+  - enabled: 1
     path: Assets/Scenes/TestScene22.unity
     guid: daa29d5cdc7c35a418d4f3cba8046f80
   - enabled: 1
@@ -104,6 +107,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScene29.unity
     guid: 661e1e5d24e2f0444a4d38aff9e6a371
+  - enabled: 1
+    path: Assets/Scenes/TestScene29.1.unity
+    guid: 174c68ef62f12ae40bc8ba2b1423b733
   - enabled: 1
     path: Assets/Scenes/TestScene30.unity
     guid: 77f3be1ece1e502419cb05a615410f94
