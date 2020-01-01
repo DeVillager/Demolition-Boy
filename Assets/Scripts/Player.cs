@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         gm = GameManager.instance.GetComponent<GameManager>();
         gm.player = this;
-        Invoke("ResetWalls", 0.5f);
+        //Invoke("ResetWalls", 0.5f);
         bomb = this.GetComponent<Bomb>();
         legalMove = true;
         movement = GetComponent<Movement>();
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
 
     void ResetWalls()
     {
-        gm.wallAmount = 1;
+        //gm.wallAmount = 1;
     }
 
 

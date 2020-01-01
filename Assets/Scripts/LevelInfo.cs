@@ -36,6 +36,7 @@ public class LevelInfo : MonoBehaviour
     void Start()
     {  
         wallAmount = GameObject.FindGameObjectsWithTag("Wall1").Length;
+        GameManager.instance.wallAmount = wallAmount;
     }
 
     public void UpdateColor(ObjectColors color)

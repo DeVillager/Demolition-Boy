@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     public Player player;
     public bool doingSetup;
-    public int wallAmount = 1;
+    public int wallAmount;
     public bool exitInitialized = false;
     public bool exitRevealed = false;
 
@@ -62,8 +62,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Loaded scene " + level);
-        Debug.Log("Total scenes " + SceneManager.sceneCountInBuildSettings);
+        Debug.Log("Loaded scene: " + level);
+        Debug.Log("Total scenes: " + SceneManager.sceneCountInBuildSettings);
         Invoke("UpdateWalls", 1f);
     }
 
