@@ -1570,6 +1570,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2675551938464164459, guid: ea5fd53a745f65b408c3da01e4fed60a,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1698,31 +1723,6 @@ PrefabInstance:
     - target: {fileID: 7301186347210358096, guid: ea5fd53a745f65b408c3da01e4fed60a,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6092060721161255627, guid: ea5fd53a745f65b408c3da01e4fed60a,

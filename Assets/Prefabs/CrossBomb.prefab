@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5359298495782929074}
   - component: {fileID: 8036809653410702485}
   - component: {fileID: 5530144785511462550}
+  - component: {fileID: 5378792027576014578}
   m_Layer: 10
   m_Name: CrossBomb
   m_TagString: Untagged
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 1418395599
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 08e44b9060634b446826957bce10bef6, type: 3}
-  m_Color: {r: 0.23306042, g: 0.2216981, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 450d5a29ab3abb5428b54e7f9d8b12aa, type: 3}
+  m_Color: {r: 1, g: 0.51988655, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -106,7 +107,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &5530144785511462550
 MonoBehaviour:
@@ -120,3 +121,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615742a259e959b4b819f373dfb78c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &5378792027576014578
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031011634735249191}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 605a213b3db826e4bb0027bf92c60589, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

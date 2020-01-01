@@ -470,6 +470,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3684591863585262194, guid: 2b02b0f9ba2454146947e86a27334497,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684591863585262194, guid: 2b02b0f9ba2454146947e86a27334497,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684591863585262194, guid: 2b02b0f9ba2454146947e86a27334497,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b02b0f9ba2454146947e86a27334497, type: 3}
 --- !u!4 &517345711 stripped
@@ -893,6 +908,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2675551938464164459, guid: ea5fd53a745f65b408c3da01e4fed60a,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1021,31 +1061,6 @@ PrefabInstance:
     - target: {fileID: 7301186347210358096, guid: ea5fd53a745f65b408c3da01e4fed60a,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894722298782300625, guid: ea5fd53a745f65b408c3da01e4fed60a,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6092060721161255627, guid: ea5fd53a745f65b408c3da01e4fed60a,
@@ -2358,6 +2373,21 @@ PrefabInstance:
         type: 3}
       propertyPath: explosionLength
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3778266850972728835, guid: 37c1781b3d7a42843b954bf5e40a53a9,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3778266850972728835, guid: 37c1781b3d7a42843b954bf5e40a53a9,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3778266850972728835, guid: 37c1781b3d7a42843b954bf5e40a53a9,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 379409291383278288, guid: 37c1781b3d7a42843b954bf5e40a53a9,
         type: 3}
