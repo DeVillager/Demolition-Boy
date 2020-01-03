@@ -385,6 +385,18 @@ RectTransform:
   m_AnchoredPosition: {x: -16.202543, y: 43.01687}
   m_SizeDelta: {x: 1067.69, y: 602.32}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!82 &635501026 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6296545339300248985, guid: 8aaba6960b4910d4a9f32b7e3b110a44,
+    type: 3}
+  m_PrefabInstance: {fileID: 2323973860485360063}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &635501027 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1500043891178449537, guid: 8aaba6960b4910d4a9f32b7e3b110a44,
+    type: 3}
+  m_PrefabInstance: {fileID: 2323973860485360063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &851565359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,6 +1762,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1899207367685743070, guid: 8aaba6960b4910d4a9f32b7e3b110a44,
+        type: 3}
+      propertyPath: efxSource
+      value: 
+      objectReference: {fileID: 635501027}
+    - target: {fileID: 1899207367685743070, guid: 8aaba6960b4910d4a9f32b7e3b110a44,
+        type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 635501026}
     - target: {fileID: 8982502945615253324, guid: 8aaba6960b4910d4a9f32b7e3b110a44,
         type: 3}
       propertyPath: m_Name
@@ -1820,7 +1842,8 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 094f59380babb3941be8584c5df50e5e, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1899207367685743070, guid: 8aaba6960b4910d4a9f32b7e3b110a44, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8aaba6960b4910d4a9f32b7e3b110a44, type: 3}
 --- !u!1001 &3218934771052732190
 PrefabInstance:
